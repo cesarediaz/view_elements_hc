@@ -8,8 +8,15 @@ module ViewElements
       @locals = locals
     end
 
+    # previous code
+    # def render
+    #   action_view.render file: template, locals: locals, formats: [:html]
+    # end
+
     def render
-      action_view.render file: template, locals: locals, formats: [:html]
+      puts 'Template: ' + template
+
+      action_view.render file: Rails.root.join('app/view_elements/shared/service_fee/index.html.erb'), locals: locals, formats: [:html]
     end
   end
 end
