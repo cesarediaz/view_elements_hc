@@ -6,7 +6,9 @@ module ViewElements
       ActionView::Base.send :include, ViewElements::Helper
     end
     initializer "view_elements.assets" do |app|
-      Rails.application.config.assets.paths <<
+      Rails.application.config.asset_host ||= ""
+
+      Rails.application.config.asset_host <<
        ViewElements.configuration.components_path
    end
   end
